@@ -190,3 +190,12 @@ a {
 a:hover, a:focus, a:active {
   color: #C4C6D4;
 }
+
+.test-score a {
+  font-weight: bold;
+}
+
+.subheading.mb-3.with-score {
+  margin-bottom: 2px !important;
+}
+
