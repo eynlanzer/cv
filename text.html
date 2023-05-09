@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GWD</title>
+  <style>
+    #MyDivName {
+      overflow: auto;
+      width: 300px;
+      height: 193px
+    }
+
+    gwd-page {
+      display: block
+    }
+
+    .gwd-inactive {
+      visibility: hidden
+    }
+  </style>
+  <style>
+    .gwd-pagedeck {
+      position: relative;
+      display: block
+    }
+
+    .gwd-pagedeck>.gwd-page.transparent {
+      opacity: 0
+    }
+
+    .gwd-pagedeck>.gwd-page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transition-property: -webkit-transform, opacity;
+      -moz-transition-property: transform, opacity;
+      transition-property: transform, opacity
+    }
+
+    .gwd-pagedeck>.gwd-page.linear {
+      transition-timing-function: linear
+    }
+
+    .gwd-pagedeck>.gwd-page.ease-in {
+      transition-timing-function: ease-in
+    }
+
+    .gwd-pagedeck>.gwd-page.ease-out {
+      transition-timing-function: ease-out
+    }
+
+    .gwd-pagedeck>.gwd-page.ease {
+      transition-timing-function: ease
+    }
+
+    .gwd-pagedeck>.gwd-page.ease-in-out {
+      transition-timing-function: ease-in-out
+    }
+
+    .linear *,
+    .ease-in *,
+    .ease-out *,
+    .ease *,
+    .ease-in-out * {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0)
+    }
+  </style>
+  <style>
+    gwd-page.fs {
+      border: none
+    }
+  </style>
+  <style>
+    gwd-image.scaled-proportionally>div.intermediate-element>img {
+      background-repeat: no-repeat;
+      background-position: center
+    }
+
+    gwd-image {
+      display: inline-block
+    }
+
+    gwd-image>div.intermediate-element {
+      width: 100%;
+      height: 100%
+    }
+
+    gwd-image>div.intermediate-element>img {
+      display: block;
+      width: 100%;
+      height: 100%
+    }
+  </style>
+  <style>
+    gwd-taparea {
+      display: block;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+  </style>
+  <style type="text/css" id="gwd-lightbox-style">
+    .gwd-lightbox {
+      overflow: hidden
+    }
+  </style>
+  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px
+    }
+
+    h1 {
+      margin: 0px
+    }
+
+    h2 {
+      margin: 0px
+    }
+
+    h3 {
+      margin: 0px
+    }
+  </style>
+  <style type="text/css">
+    #isi_container {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      color: #5b6770;
+      overflow-y: auto;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 590px, 0);
+      overflow-x: hidden !important
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0px
+    }
+
+    .gwd-page-container {
+      position: relative;
+      width: 100%;
+      height: 100%
+    }
+
+    .gwd-page-content {
+      background-color: transparent;
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      perspective: 1400px;
+      transform-style: flat;
+      position: absolute
+    }
+
+    .gwd-page-wrapper {
+      background-color: #fff;
+      position: absolute;
+      transform: translateZ(0)
+    }
+
+    .gwd-page-size {
+      width: 300px;
+      height: 600px
+    }
+
+    .gwd-div-7v59 {
+      color: #252424;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      margin-top: -30px;
+      padding-left: 26px;
+      z-index: 1
+    }
+
+    .gwd-image-23ct {
+      position: absolute;
+      width: 300px;
+      height: 24px;
+      left: 0px;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 1247px, 0);
+      top: 94px
+    }
+
+    .gwd-taparea-u4kt {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 300px;
+      height: 600px
+    }
+
+    .gwd-taparea-kao4 {
+      position: absolute;
+      left: 0px;
+      transform-style: preserve-3d;
+      height: 24px;
+      width: 300px;
+      top: -211px;
+      opacity: 1;
+      transform: translate3d(0, 818px, 0)
+    }
+
+    .gwd-div-1s4f {
+      width: 100%;
+      height: 100%
+    }
+
+    .gwd-img-1qbi {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-position: center center
+    }
+
+    .gwd-image-1r59 {
+      position: absolute;
+      width: 213px;
+      height: 33px;
+      left: 24px;
+      top: -197px
+    }
+
+    .footer {
+      color: #5b6770;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      line-height: 14px;
+      top: 0px;
+      transform-style: preserve-3d;
+      width: 245px;
+      transform: translate3d(0, 162px, 0)
+    }
+
+    .gwd-span-18u7 {
+      font-size: 12px;
+      line-height: 14px;
+      width: 200px
+    }
+
+    .gwd-sup-102r {
+      font-size: 7px
+    }
+
+    .gwd-br-731h {
+      font-size: 12px
+    }
+
+    .gwd-br-1npj {
+      font-size: 12px
+    }
+
+    .gwd-div-1vz0 {
+      width: 100%;
+      height: 100%
+    }
+
+    .gwd-img-1m20 {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-position: center center
+    }
+
+    .gwd-div-a4hc {
+      position: absolute;
+      left: 0px;
+      background-image: none;
+      background-color: #fff;
+      width: 300px;
+      height: 190px;
+      top: 461px
+    }
+
+    .gwd-div-13wj {
+      position: absolute;
+      top: 8px;
+      left: 9px;
+      width: 272px;
+      height: 171px
+    }
+
+    .gwd-image-wnti {
+      position: absolute;
+      width: 300px;
+      height: 600px;
+      left: 0px;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 682px, 0);
+      top: 128px
+    }
+
+    .gwd-image-4yot {
+      position: absolute;
+      width: 300px;
+      height: 600px;
+      left: 0px;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 0, 0);
+      top: 1415px
+    }
+
+    .gwd-image-173r {
+      position: absolute;
+      width: 300px;
+      height: 227px;
+      left: 0px;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 666px, 0);
+      top: 815px
+    }
+
+    .gwd-image-5nz9 {
+      position: absolute;
+      left: 0px;
+      height: 5px;
+      transform-style: preserve-3d;
+      width: 302px;
+      top: 1156px;
+      transform: translate3d(0, -110px, 0)
+    }
+
+    @keyframes gwd-gen-n007gwdanimation_gwd-keyframes {
+      0% {
+        transform: translate3d(0, -110px, 0);
+        width: 302px;
+        animation-timing-function: ease
+      }
+
+      100% {
+        transform: translate3d(0, -778px, 0);
+        width: 302px;
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-n007gwdanimation {
+      animation: 2s linear 10s 1 normal forwards gwd-gen-n007gwdanimation_gwd-keyframes
+    }
+
+    @keyframes gwd-gen-17djgwdanimation_gwd-keyframes {
+      0% {
+        transform: translate3d(0, 590px, 0);
+        height: 190px;
+        animation-timing-function: ease
+      }
+
+      83.3333% {
+        transform: translate3d(0, -78px, 0);
+        height: 190px;
+        animation-timing-function: linear
+      }
+
+      100% {
+        transform: translate3d(0, -78px, 0);
+        height: 193px;
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-17djgwdanimation {
+      animation: 2.4s linear 10s 1 normal forwards gwd-gen-17djgwdanimation_gwd-keyframes
+    }
+
+    @keyframes gwd-gen-190pgwdanimation_gwd-keyframes {
+      0% {
+        transform: translate3d(0, 1247px, 0);
+        height: 24px;
+        animation-timing-function: linear
+      }
+
+      83.3333% {
+        transform: translate3d(0, 1147px, 0);
+        height: 24px;
+        animation-timing-function: ease
+      }
+
+      100% {
+        transform: translate3d(0, 482px, 0);
+        height: 25px;
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-190pgwdanimation {
+      animation: 12s linear 0s 1 normal forwards gwd-gen-190pgwdanimation_gwd-keyframes
+    }
+
+    .gwd-image-1mts {
+      position: absolute;
+      width: 300px;
+      height: 112px;
+      left: 0px;
+      opacity: 0;
+      top: 219px
+    }
+
+    @keyframes gwd-gen-19b2gwdanimation_gwd-keyframes {
+      0% {
+        opacity: 0;
+        top: 219px;
+        animation-timing-function: linear
+      }
+
+      100% {
+        opacity: 1;
+        top: 219px;
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-19b2gwdanimation {
+      animation: .5s linear 12.5s 1 normal forwards gwd-gen-19b2gwdanimation_gwd-keyframes
+    }
+
+    .gwd-div-mc1i {
+      position: absolute;
+      left: 38px;
+      width: 237px;
+      height: 51px;
+      overflow: hidden;
+      top: 245px
+    }
+
+    .gwd-image-1489 {
+      position: absolute;
+      height: 142px;
+      width: 66px;
+      top: -44px;
+      left: -70px;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 0, 0)
+    }
+
+    @keyframes gwd-gen-1vvtgwdanimation_gwd-keyframes {
+      0% {
+        transform: translate3d(0, 0, 0);
+        animation-timing-function: ease
+      }
+
+      100% {
+        transform: translate3d(301px, 0, 0);
+        animation-timing-function: linear
+      }
+    }
+
+    .gwd-play-animation #gleam .gwd-gen-1vvtgwdanimation {
+      animation: 1s linear 13.5s 1 normal forwards gwd-gen-1vvtgwdanimation_gwd-keyframes
+    }
+
+    @keyframes gwd-gen-1galgwdanimation_gwd-keyframes {
+      0% {
+        height: 600px;
+        animation-timing-function: linear
+      }
+
+      100% {
+        height: 388px;
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-1galgwdanimation {
+      animation: 2s linear 10s 1 normal forwards gwd-gen-1galgwdanimation_gwd-keyframes
+    }
+
+    @keyframes gwd-gen-1440gwdanimation_gwd-keyframes {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 818px, 0);
+        animation-timing-function: linear
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 790px, 0);
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-1440gwdanimation {
+      animation: 2s linear 10s 1 normal forwards gwd-gen-1440gwdanimation_gwd-keyframes
+    }
+
+    .gwd-image-1p16 {
+      position: absolute;
+      width: 300px;
+      height: 613px;
+      top: 0px;
+      left: 0px
+    }
+
+    .gwd-image-twm9 {
+      position: absolute;
+      width: 300px;
+      height: 600px;
+      left: 0px;
+      top: 134px;
+      opacity: 0
+    }
+
+    .gwd-image-16gs {
+      position: absolute;
+      width: 300px;
+      height: 571px;
+      left: 0px;
+      top: 713px
+    }
+
+    .gwd-div-10ip {
+      position: absolute;
+      left: 0px;
+      top: -134px;
+      width: 300px;
+      height: 2015px;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 0, 0)
+    }
+
+    @keyframes gwd-gen-1ek5gwdanimation_gwd-keyframes {
+      0% {
+        transform: translate3d(0, 0, 0);
+        animation-timing-function: linear
+      }
+
+      33.3333% {
+        transform: translate3d(0, 0, 0);
+        animation-timing-function: ease
+      }
+
+      50% {
+        transform: translate3d(0, -682px, 0);
+        animation-timing-function: ease
+      }
+
+      83.3333% {
+        transform: translate3d(0, -682px, 0);
+        animation-timing-function: ease
+      }
+
+      100% {
+        transform: translate3d(0, -1348px, 0);
+        animation-timing-function: linear
+      }
+    }
+
+    #page1.gwd-play-animation .gwd-gen-1ek5gwdanimation {
+      animation: 12s linear 0s 1 normal forwards gwd-gen-1ek5gwdanimation_gwd-keyframes
+    }
+
+    @keyframes gwd-gen-1gclgwdanimation_gwd-keyframes {
+      0% {
+        opacity: 0;
+        animation-timing-function: linear
+      }
+
+      100% {
+        opacity: 1;
+        animation-timing-function: linear
+      }
+    }
+
+    .gwd-play-animation #main_container .gwd-gen-1gclgwdanimation {
+      animation: 1s linear 0s 1 normal forwards gwd-gen-1gclgwdanimation_gwd-keyframes
+    }
+  </style>
+  <style>
+    #isi {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      color: rgb(91, 103, 112);
+    }
+
+    #isi p,
+    #isi h1 {
+      margin-top: 0px;
+      margin-bottom: 6px;
+    }
+
+    #isi h1 {
+      color: rgb(24, 15, 94);
+      font-size: 15px;
+      line-height: 16px;
+      font-weight: bold;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+      cursor: pointer;
+      width: 1px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 0px;
+      background: rgb(38, 35, 86);
+    }
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+      background: rgb(38, 35, 86);
+    }
+
+    #isi_logos {
+      width: 130px;
+      display: block;
+      float: none;
+    }
+
+    ul {
+      margin: 0px;
+    }
+
+    ul.dashed {
+      list-style-type: none;
+    }
+
+    ul.dashed>li {
+      text-indent: -5px;
+    }
+
+    ul.dashed>li::before {
+      content: "-";
+      text-indent: -5px;
+    }
+
+    #right-side-p {
+      padding-left: 42px;
+    }
+
+    #right-side-copy {
+      display: flow-root;
+    }
+
+    #right-side-copy ul li::before {
+      content: "•";
+      color: rgb(91, 103, 112);
+      font-weight: bold;
+      display: inline-block;
+      width: 9px;
+      margin-left: -9px;
+    }
+
+    ul li::before {
+      content: "•";
+      color: rgb(91, 103, 112);
+      font-weight: bold;
+      display: inline-block;
+      width: 9px;
+      margin-left: -9px;
+    }
+
+    #right-side-copy ul li::before {
+      margin-left: -13px;
+    }
+
+    #isi_fda {
+      color: rgb(24, 15, 94);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #isi_pi {
+      color: rgb(24, 15, 94);
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #isi_footer {
+      font-size: 12px;
+      line-height: 13px;
+    }
+
+    .spacer1 {
+      height: 6px;
+    }
+
+    .spacer2 {
+      height: 12px;
+    }
+
+    .spacer3 {
+      height: 15px;
+    }
+
+    sup {
+      font-size: 10px;
+      line-height: 0px;
+    }
+
+    .icon {
+      width: 33px;
+      height: 35px;
+      float: left;
+      padding-right: 8px;
+      padding-top: 0px;
+    }
+
+    #isi ul {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 10px;
+      margin: 0px;
+    }
+
+    #isi ul {
+      list-style: none;
+    }
+
+    #isi li {
+      position: relative;
+      margin-bottom: 0px;
+    }
+
+    #isi ul li::before {
+      font-weight: normal;
+      position: absolute;
+      top: -10px;
+      margin: 10px 0px 0px -8px;
+      vertical-align: middle;
+      display: inline-block;
+      content: "•";
+      font-size: 15px;
+      color: rgb(24, 15, 94);
+    }
+
+    #isi ul ul li::before {
+      position: absolute;
+      top: -15px;
+      margin: 15px 0px 0px -10px;
+      vertical-align: middle;
+      display: inline-block;
+      content: "-";
+      font-size: 15px;
+      color: rgb(91, 103, 112);
+    }
+  </style>
+</head>
+
+<body onLoad="scrollDiv_init()">
+  <div class="gwd-div-13wj" id="isi">
+    <div id="MyDivName" onMouseOver="pauseDiv()" onMouseOut="resumeDiv()">
+      <h1>
+        IMPORTANT SAFETY INFORMATION
+      </h1>
+      <p>
+        <strong>What is the most important information I should know about PADCEV<sup>®</sup>?</strong>
+      </p>
+      <p>
+        <strong>PADCEV may cause serious side effects, including:</strong>
+      </p>
+      <p>
+        <strong>Skin reactions.</strong> Skin reactions including severe skin reactions have happened in people treated
+        with PADCEV and may be more common when PADCEV is given with pembrolizumab. In some cases, these severe skin
+        reactions have caused death. Most severe skin reactions occurred during the first cycle of treatment but may
+        happen later. Your healthcare provider will monitor you, may stop your treatment with PADCEV completely or for a
+        period of time (temporarily), may change your dose, and may prescribe medicines if you get skin reactions. Tell
+        your healthcare provider right away if you develop any of these signs of a new or worsening skin reaction:
+      </p>
+      <ul>
+        <li>
+          <p>target lesions (skin reactions that look like rings)</p>
+        </li>
+        <li>
+          <p>rash or itching that continues to get worse</p>
+        </li>
+        <li>
+          <p>blistering or peeling of the skin</p>
+        </li>
+        <li>
+          <p>painful sores or ulcers in mouth or nose, throat, or genital area</p>
+        </li>
+        <li>
+          <p>fever or flu-like symptoms</p>
+        </li>
+        <li>
+          <p>swollen lymph nodes</p>
+        </li>
+      </ul>
+      <p>See <strong>“What are the possible side effects of PADCEV?”</strong> for more information about side effects.
+      </p>
+      <div class="spacer1"></div>
+      <div class="spacer2"></div>
+      <gwd-image source="isi_icon_1.svg" class="icon" id="isi_icon_1"></gwd-image>
+      <div id="right-side-copy">
+        <p>
+          <strong>Before receiving PADCEV, tell your healthcare provider about all of your medical conditions, including
+            if you:</strong>
+        </p>
+        <ul>
+          <li>
+            <p>are currently experiencing numbness or tingling in your hands or feet.</p>
+          </li>
+          <li>
+            <p>have a history of high blood sugar or diabetes.</p>
+          </li>
+          <li>
+            <p>have liver problems.</p>
+          </li>
+          <li>
+            <p>are pregnant or plan to become pregnant. PADCEV can harm your unborn baby. Tell your healthcare provider
+              right away if you become pregnant or think you may be pregnant during treatment with PADCEV.</p>
+          </li>
+          <li>
+            <p>are breastfeeding or plan to breastfeed. It is not known if PADCEV passes into your breast milk. Do not
+              breastfeed during treatment and for at least 3 weeks after the last dose of PADCEV.</p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_2.svg" class="icon" width="33px" height="35px" id="isi_icon_2"></gwd-image>
+      <div id="right-side-copy">
+        <p>
+          <strong>Females who are able to become pregnant:</strong>
+        </p>
+        <ul>
+          <li>
+            <p>Your healthcare provider should do a pregnancy test before you start treatment with PADCEV.</p>
+          </li>
+          <li>
+            <p>You should use an effective method of birth control during your treatment and for at least 2 months after
+              the last dose of PADCEV.</p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_3.svg" class="icon" id="isi_icon_3"></gwd-image>
+      <div id="right-side-copy">
+        <p>
+          <strong>Males with a female sexual partner who is able to become pregnant:</strong>
+        </p>
+        <ul>
+          <li>
+            <p>If your female partner is pregnant, PADCEV can harm the unborn baby.</p>
+          </li>
+          <li>
+            <p>You should use an effective method of birth control during your treatment and for at least 4 months after
+              the last dose of PADCEV.</p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_4.svg" class="icon" id="isi_icon_4"></gwd-image>
+      <div id="right-side-copy">
+        <p><strong>Tell your healthcare provider about all the medicines you take,</strong> including prescription and
+          over-the-counter medicines, vitamins, and herbal supplements. Taking PADCEV with certain other medicines may
+          cause side effects.</p>
+        <div class="spacer2"></div>
+      </div>
+      <div class="spacer2"></div>
+      <p>
+        <strong>What are the possible side effects of PADCEV?</strong>
+      </p>
+      <div class="spacer1"></div>
+      <p>
+        <strong>PADCEV may cause serious side effects, including:</strong>
+      </p>
+      <div class="spacer1"></div>
+      <gwd-image source="isi_icon_6.svg" class="icon" width="33px" height="35px" style="padding-top: 2px;"
+        id="isi_icon_6"></gwd-image>
+      <div id="right-side-copy">
+        <ul>
+          <li>
+            <p style="display: block;"><strong>Skin Reactions.</strong> See <strong>“What is the most important
+                information I should know about PADCEV?” </strong> </p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_7.svg" class="icon" width="33px" height="35px" id="isi_icon_7"></gwd-image>
+      <div id="right-side-copy">
+        <ul>
+          <li>
+            <p><strong>High blood sugar (hyperglycemia).</strong> An increase in blood sugar is common during treatment
+              with PADCEV. Severe high blood sugar, a serious condition called diabetic ketoacidosis (DKA), and death
+              have
+              happened in people with and without diabetes treated with PADCEV. Tell your healthcare provider right away
+              if you have any symptoms of high blood sugar, including: frequent urination, increased thirst, blurred
+              vision, confusion, it becomes harder to control your blood sugar, drowsiness, loss of appetite, fruity
+              smell
+              on your breath, nausea, vomiting, or stomach pain.</p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_8.svg" class="icon" width="33px" height="35px" style="padding-top: 2px;"
+        id="isi_icon_8"></gwd-image>
+      <div id="right-side-copy">
+        <ul>
+          <li>
+            <p> <strong>Lung problems.</strong> PADCEV may cause severe or life-threatening inflammation of the lungs
+              that
+              can lead to death. These severe problems may happen more often when PADCEV is given in combination with
+              pembrolizumab. Tell your healthcare provider right away if you get new or worsening symptoms, including
+              trouble breathing, shortness of breath, or cough.</p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_9.svg" class="icon" width="33px" height="35px" style="padding-top: 3px;"
+        id="isi_icon_9"></gwd-image>
+      <div id="right-side-copy">
+        <ul>
+          <li>
+            <p> <strong>Nerve problems.</strong> Nerve problems called peripheral neuropathy are common during treatment
+              with PADCEV and can sometimes be severe. Nerve problems may happen more often when PADCEV is given in
+              combination with pembrolizumab. Tell your healthcare provider right away if you get new or worsening
+              numbness or tingling in your hands or feet or muscle weakness.</p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_10.svg" class="icon" width="33px" height="35px" id="isi_icon_10"></gwd-image>
+      <div id="right-side-copy">
+        <ul>
+          <li>
+            <p><strong>Eye problems.</strong> Certain eye problems are common during treatment with PADCEV. Tell your
+              healthcare provider right away if you have dry eyes, increased tearing, blurred vision, or any vision
+              changes. You may use artificial tear substitutes to help prevent or treat dry eyes. </p>
+          </li>
+        </ul>
+      </div>
+      <gwd-image source="isi_icon_11.svg" class="icon" width="33px" height="35px" id="isi_icon_11"></gwd-image>
+      <div id="right-side-copy">
+        <ul>
+          <li>
+            <p> <strong>
+                Leakage of PADCEV out of your vein into the tissues around your infusion site (extravasation).
+              </strong> If PADCEV leaks from the injection site or the vein into the nearby skin and tissues, it could
+              cause an infusion site reaction. These reactions can happen right after you receive an infusion, but
+              sometimes may happen days after your infusion. Tell your healthcare provider or get medical help right
+              away
+              if you notice any redness, swelling, itching, blister, peeling skin or discomfort at the infusion site.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="spacer1"></div>
+      <p>Your healthcare provider may decrease your dose of PADCEV, or temporarily or completely stop your treatment
+        with
+        PADCEV if you have severe side effects.</p>
+      <p>
+        <strong>The most common side effects of PADCEV when used alone include:</strong>
+      </p>
+      <ul>
+        <li>
+          <p>rash.<strong> See “What is the most important information I should know about PADCEV?”</strong></p>
+        </li>
+        <li>
+          <p>changes in liver and kidney function tests</p>
+        </li>
+        <li>
+          <p>increased sugar (glucose) in the blood.<strong> See “High blood sugar (hyperglycemia)”</strong></p>
+        </li>
+        <li>
+          <p>tiredness</p>
+        </li>
+        <li>
+          <p>decreased white blood cell, red blood cell, and platelet counts</p>
+        </li>
+        <li>
+          <p>hair loss</p>
+        </li>
+        <li>
+          <p>decreased appetite</p>
+        </li>
+        <li>
+          <p>diarrhea</p>
+        </li>
+        <li>
+          <p>decreased sodium, phosphate and protein (albumin) in the blood</p>
+        </li>
+        <li>
+          <p>nausea</p>
+        </li>
+        <li>
+          <p>itching</p>
+        </li>
+        <li>
+          <p>change in sense of taste</p>
+        </li>
+        <li>
+          <p>increased uric acid in the blood</p>
+        </li>
+        <li>
+          <p>increased lipase (a blood test done to check your pancreas)</p>
+        </li>
+        <li>
+          <p>decreased weight</p>
+        </li>
+        <li>
+          <p>dry skin</p>
+        </li>
+      </ul>
+      <div class="spacer1"></div>
+      <p>
+        If your healthcare provider prescribes PADCEV in combination with pembrolizumab for you, also read the
+        Medication
+        Guide that comes with pembrolizumab for important information about pembrolizumab.
+      </p>
+      <div class="spacer1"></div>
+      <p>
+        <strong>The most common side effects of PADCEV when used in combination with pembrolizumab include:</strong>
+      </p>
+      <ul>
+        <li>
+          <p>increased sugar (glucose) in the blood. <strong> See “High blood sugar (hyperglycemia)”</strong></p>
+        </li>
+        <li>
+          <p>
+            changes in liver function and kidney function tests
+          </p>
+        </li>
+        <li>
+          <p>rash. <strong>See “What is the most important information I should know about PADCEV?”</strong> </p>
+        </li>
+        <li>
+          <p>decreased red blood cell and white blood cell counts</p>
+        </li>
+        <li>
+          <p>tiredness</p>
+        </li>
+        <li>
+          <p>decreased sodium, phosphate and protein (albumin) in the blood</p>
+        </li>
+        <li>
+          <p>increased lipase (a test done to check your pancreas)</p>
+        </li>
+        <li>
+          <p>hair loss</p>
+        </li>
+        <li>
+          <p>decreased weight</p>
+        </li>
+        <li>
+          <p>diarrhea</p>
+        </li>
+        <li>
+          <p>itching</p>
+        </li>
+        <li>
+          <p>decreased appetite</p>
+        </li>
+        <li>
+          <p>nausea</p>
+        </li>
+        <li>
+          <p>change in sense of taste</p>
+        </li>
+        <li>
+          <p>urinary tract infection</p>
+        </li>
+        <li>
+          <p>constipation</p>
+        </li>
+        <li>
+          <p>Increased or decreased potassium</p>
+        </li>
+        <li>
+        </li>
+        <li>
+          <p>increased calcium in the blood</p>
+        </li>
+        <li>
+        </li>
+        <li>
+          <p>swelling of the arms, hands, legs and feet</p>
+        </li>
+        <li>
+        </li>
+        <li>
+          <p> dry eye. <strong>See “Eye problems”</strong></p>
+        </li>
+        <li>
+        </li>
+        <li>
+          <p>dizziness</p>
+        </li>
+        <li>
+        </li>
+        <li>
+          <p>joint aches</p>
+        </li>
+        <li>
+        </li>
+        <li>
+          <p>dry skin</p>
+        </li>
+      </ul>
+      <div class="spacer1"></div>
+      <p>
+        PADCEV may cause fertility problems in females and males, which may affect the ability to have children. Talk to
+        your healthcare provider if you have concerns about fertility.
+      </p>
+      <div class="spacer1"></div>
+      <p>
+        These are not all the possible side effects of PADCEV.
+      </p>
+      <div class="spacer2"></div>
+      <gwd-image source="isi_icon_12.svg" style="padding-right: 8px;" class="icon" id="isi_icon_12"></gwd-image>
+      <p id="right-side-copy">
+        Call your doctor for medical advice about side effects. You may report side effects to the FDA at 1-800-FDA-1088
+        or <span id="isi_fda"
+          style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;">www.fda.gov/medwatch</span>.
+      </p>
+      <div class="spacer1"></div>
+      <h1>
+        WHAT IS PADCEV?
+      </h1>
+      <p>
+        PADCEV is a prescription medicine used to treat adults with bladder cancer and cancers of the urinary tract
+        (renal
+        pelvis, ureter or urethra) that has spread or cannot be removed by surgery.
+      </p>
+      <ul>
+        <li>PADCEV may be used alone if you:
+          <ul>
+            <li>
+              <p>
+                have received an immunotherapy medicine <strong>and</strong> chemotherapy that contains platinum,
+                <strong>or</strong>
+              </p>
+            </li>
+            <li>
+              <p>are not able to receive a chemotherapy that contains the medicine cisplatin and you have received 1 or
+                more prior therapy.</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>PADCEV may be used with pembrolizumab if you:
+          <ul>
+            <li>
+              <p>
+                are not able to receive a chemotherapy that contains the medicine cisplatin.
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="spacer1"></div>
+      <p>
+        It is not known if PADCEV is safe and effective in children.
+      </p>
+      <div class="spacer1"></div>
+      <p>
+        PADCEV with pembrolizumab was FDA approved based on a clinical study that measured how many people had a tumor
+        response. There is another study of PADCEV with pembrolizumab ongoing to confirm the clinical benefit.
+      </p>
+      <div class="spacer2"></div>
+      <p>Please see <span id="isi_pi">full Prescribing Information/Patient Information</span> for more information,
+        including risk of <strong>Serious Side Effects</strong>.</p>
+      <div class="spacer2"></div>
+      <gwd-image source="isi_logos.png" width="130px" height="auto" id="isi_logos"></gwd-image>
+      <div class="spacer2"></div>
+      <div class="spacer2"></div>
+      <p id="isi_footer">
+        © 2023 Astellas Pharma US, Inc. and Seagen Inc. All rights reserved. 081-1891-PM 04/23<br>
+        <span>PADCEV<sup>®</sup></span> and the PADCEV device are trademarks jointly owned by Agensys, Inc., and Seagen
+        Inc.<br> Astellas and the flying star logo are registered trademarks of Astellas Pharma Inc.<br> Seagen and the
+        Seagen logo are registered trademarks of Seagen Inc.
+      </p>
+      <div class="spacer2"></div>
+      <div class="spacer2"></div>
+    </div>
+  </div>
+  <script>
+    var ScrollRate = 50;
+    function scrollDiv_init() {
+      DivElmnt = document.getElementById("MyDivName");
+      ReachedMaxScroll = false;
+      DivElmnt.scrollTop = 0;
+      PreviousScrollTop = 0;
+      ScrollInterval = setInterval('scrollDiv()', ScrollRate);
+    }
+    function scrollDiv() {
+      if (!ReachedMaxScroll) {
+        DivElmnt.scrollTop = PreviousScrollTop;
+        PreviousScrollTop++;
+        ReachedMaxScroll = DivElmnt.scrollTop >= (DivElmnt.scrollHeight - DivElmnt.offsetHeight);
+      }
+    }
+    function pauseDiv() {
+      clearInterval(ScrollInterval);
+    }
+    function resumeDiv() {
+      PreviousScrollTop = DivElmnt.scrollTop;
+      ScrollInterval = setInterval('scrollDiv()', ScrollRate);
+    }
+  </script>
+</body>
+
+</html>
